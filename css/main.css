@@ -15,9 +15,10 @@
   transition: transform 0.2s ease-out;
 }
 
-#gameplay img {
+img {
   user-select: none;
   -webkit-user-drag: none;
+  pointer-events: none;
 }
 
 #gameplay .fumo-container {
@@ -34,7 +35,6 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  pointer-events: none;
   animation: spin 6s linear infinite 0.4s;
   transform-origin: center;
 }
@@ -63,6 +63,52 @@
 
 .fumo-container:nth-of-type(3) {
   left: 75%;
+}
+
+#doge-pointer {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+#doge-pointer > img {
+  width: 100%;
+  height: 100%;
+  position: inherit;
+  object-fit: contain;
+}
+
+#doge-pointer ._doge {
+  transform: scaleX(-1);
+}
+
+#doge-pointer ._stick {
+  left: 75%;
+  bottom: 5%;
+  z-index: 1;
+  transform-origin: left bottom;
+  transform: rotate(0);
+  transition: all 50ms ease-out;
+}
+
+#doge-pointer ._bonk-feedback {
+  width: 150px;
+  opacity: 0;
+  left: 165%;
+  top: 35%;
+  transition: opacity 50ms linear 50ms;
+}
+
+#doge-pointer.bonked ._bonk-feedback {
+  opacity: 1;
+}
+
+#doge-pointer.bonked ._stick {
+  transform: rotate(45deg);
+  bottom: 15%;
 }
 
 @keyframes intro-zoom {
