@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bonk The Fumo</title>
+
+    <link rel="stylesheet" href="./lib/bootstrap-5.3.3-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <div id="gameplay" class="panel">
+      <img class="gameplay-bg" src="./assets/bg.jpg" />
+
+      <div class="fumo-container">
+        <img class="fumo-item" src="./assets/fumos/fumo_1.png" />
+      </div>
+
+      <div class="fumo-container">
+        <img class="fumo-item" src="./assets/fumos/fumo_2.png" />
+      </div>
+
+      <div class="fumo-container">
+        <img class="fumo-item" src="./assets/fumos/fumo_3.png" />
+      </div>
+
+      <div class="_ui p-2 text-bg-dark rounded-top-pill text-center">
+        <button class="btn btn-outline-light btn-sm fw-bold border-0">Main Menu</button>
+
+        <div class="mb-2">
+          <span class="badge text-bg-light">Total Hit = 0</span>
+          <span class="badge text-bg-light">Level = 0</span>
+          <span class="badge text-bg-light">Score = 0</span>
+        </div>
+
+        <div class="progress rounded-top-pill" role="progressbar">
+          <div class="progress-bar progress-bar-striped bg-success rounded-top-pill mx-auto" style="width: 50%">Life Bar</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./src/main.js"></script>
+  </body>
+</html>
