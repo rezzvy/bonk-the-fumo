@@ -16,32 +16,22 @@
 
         <img class="_bonk-feedback" src="./assets/bonk.png" />
       </div>
-
       <img class="gameplay-bg" src="./assets/bg.jpg" />
 
-      <div class="fumo-container">
-        <img class="fumo-item" src="./assets/fumos/fumo_1.png" />
-      </div>
-
-      <div class="fumo-container">
-        <img class="fumo-item" src="./assets/fumos/fumo_2.png" />
-      </div>
-
-      <div class="fumo-container">
-        <img class="fumo-item" src="./assets/fumos/fumo_3.png" />
-      </div>
+      <div id="fumo-wrapper"></div>
 
       <div class="_ui p-2 text-bg-dark rounded-top-pill text-center">
         <button class="btn btn-outline-light btn-sm fw-bold border-0">Main Menu</button>
 
         <div class="mb-2">
-          <span class="badge text-bg-light">Total Hit = 0</span>
-          <span class="badge text-bg-light">Level = 0</span>
-          <span class="badge text-bg-light">Score = 0</span>
+          <span class="badge text-bg-light">Total Hit = <span id="total-hit">0</span></span>
+          <span class="badge text-bg-light">Level = <span id="current-level">0</span></span>
+          <span class="badge text-bg-light">Score = <span id="score">0</span></span>
+          <span class="badge text-bg-light">Game Speed = <span id="game-speed">0</span></span>
         </div>
 
         <div class="progress rounded-top-pill" role="progressbar">
-          <div class="progress-bar progress-bar-striped bg-success rounded-top-pill mx-auto" style="width: 50%">Life Bar</div>
+          <div id="lifebar" class="progress-bar progress-bar-striped bg-success rounded-top-pill mx-auto" style="width: 100%">Life Bar</div>
         </div>
       </div>
     </div>

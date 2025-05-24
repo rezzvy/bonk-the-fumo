@@ -5,6 +5,11 @@
   overflow: hidden;
 }
 
+#gameplay #fumo-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
 #gameplay .gameplay-bg {
   position: absolute;
   top: -10px;
@@ -15,10 +20,15 @@
   transition: transform 0.2s ease-out;
 }
 
-img {
+img,
+.fumo-container {
   user-select: none;
   -webkit-user-drag: none;
   pointer-events: none;
+}
+
+.fumo-container {
+  pointer-events: initial !important;
 }
 
 #gameplay .fumo-container {
@@ -29,6 +39,8 @@ img {
   box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.125);
   position: absolute;
   animation: intro-zoom 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards, float 3s ease-in-out infinite 0.7s;
+  z-index: 2;
+  transition: left 500ms ease-in-out;
 }
 
 #gameplay .fumo-container .fumo-item {
@@ -51,18 +63,6 @@ img {
     linear-gradient(-45deg, transparent 49%, #6d6d6d 49% 51%, transparent 51%);
   background-size: 3em 3em;
   background-position: top;
-}
-
-.fumo-container:nth-of-type(1) {
-  left: 25%;
-}
-
-.fumo-container:nth-of-type(2) {
-  left: 50%;
-}
-
-.fumo-container:nth-of-type(3) {
-  left: 75%;
 }
 
 #doge-pointer {
