@@ -21,13 +21,13 @@
       <div id="fumo-wrapper"></div>
 
       <div class="_ui p-2 text-bg-dark rounded-top-pill text-center">
-        <button class="btn btn-outline-light btn-sm fw-bold border-0">Main Menu</button>
+        <button id="open-main-menu-btn" class="btn btn-outline-light btn-sm fw-bold border-0">Main Menu</button>
 
         <div class="mb-2">
           <span class="badge text-bg-light">Total Hit = <span id="total-hit">0</span></span>
           <span class="badge text-bg-light">Level = <span id="current-level">0</span></span>
           <span class="badge text-bg-light">Score = <span id="score">0</span></span>
-          <span class="badge text-bg-light">Game Speed = <span id="game-speed">0</span></span>
+          <span class="badge text-bg-light">Speed = <span id="game-speed">0</span></span>
         </div>
 
         <div class="progress rounded-top-pill" role="progressbar">
@@ -36,6 +36,78 @@
       </div>
     </div>
 
+    <div class="modal fade" id="result-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-4 fw-bold text-dark">Result</h1>
+          </div>
+          <div class="modal-body text-center">
+            <div id="score-reached" class="p-4 mb-3 text-bg-dark text-center rounded-2 overflow-auto">
+              <div class="fw-bold">SCORE</div>
+              <div id="result-score" class="display-1 fw-bold">1000</div>
+            </div>
+
+            <h2 class="fs-5 mb-3">Information</h2>
+
+            <div class="row row-cols-3 g-2 mb-3">
+              <div class="col">
+                <div class="inner">
+                  <div class="badge text-bg-dark">Total Hit</div>
+                  <div class="fs-2" id="result-hit">800</div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="inner">
+                  <div class="badge text-bg-dark">Level</div>
+                  <div class="fs-2" id="result-level">10</div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="inner">
+                  <div class="badge text-bg-dark">Speed</div>
+                  <div class="fs-2">150ms</div>
+                </div>
+              </div>
+            </div>
+
+            <button id="retry-btn" class="btn btn-dark fw-bold w-100 mb-1">Play Again</button>
+            <button id="go-to-main-menu-btn" class="btn btn-outline-dark fw-bold w-100">Main Menu</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="main-menu-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-4 fw-bold text-dark">Main Menu</h1>
+            <button id="main-menu-close-btn" type="button" class="d-none btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <h2 class="fs-5 mb-3">Things you need to know</h2>
+            <ul>
+              <li>
+                To play, wait until a fumo shows up, then bonk it by moving your pointer over it and pressing
+                <span class="badge text-bg-dark">Z</span>. If you're using a phone, just tap on the fumo.
+              </li>
+              <li>
+                Keep bonking fumos! The game speed starts at 1000ms. Every 10 hits, you go to the next level, and the speed gets faster by decreasing
+                50ms. This continues until the speed reaches a maximum of 150ms.
+              </li>
+              <li>
+                Your life bar goes down by 5% when a fumo appears, and goes up by 5% when you bonk one. The game ends when your life bar is empty.
+              </li>
+            </ul>
+
+            <button id="main-menu-start-game-btn" class="btn btn-dark fw-bold w-100 mb-1">Start Game</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./lib/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
     <script src="./src/main.js"></script>
   </body>
 </html>

@@ -58,7 +58,10 @@ img,
   max-width: 700px;
   left: 50%;
   transform: translateX(-50%);
+}
 
+#score-reached,
+#gameplay ._ui {
   background: linear-gradient(45deg, transparent 49%, #6d6d6d 49% 51%, transparent 51%),
     linear-gradient(-45deg, transparent 49%, #6d6d6d 49% 51%, transparent 51%);
   background-size: 3em 3em;
@@ -158,4 +161,12 @@ img,
     max-width: 700px;
     border-radius: 0 !important;
   }
+}
+
+body.game-starting .btn-close {
+  display: block !important;
+}
+
+body:not(.game-starting) #doge-pointer {
+  display: none;
 }
