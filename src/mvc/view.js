@@ -8,7 +8,7 @@ export default class View {
     this.dogePointer = document.getElementById("doge-pointer");
 
     // Load audio
-    this.bonkAudio = new Audio("../assets/bonk.mp3");
+    this.bonkAudio = new Audio("./assets/bonk.mp3");
     this.bonkAudio.currentTime = 0.5;
 
     // Game stat elements
