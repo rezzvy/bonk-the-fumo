@@ -17,11 +17,13 @@
   </head>
   <body>
     <div id="gameplay" class="panel">
-      <div id="doge-pointer" class="">
+      <div id="doge-pointer" data-weapon="stick">
         <img class="_doge" src="./assets/doge.png" />
         <img class="_stick" src="./assets/stick.png" />
+        <img class="_gun" src="./assets/revolver.png" />
 
         <img class="_bonk-feedback" src="./assets/bonk.png" />
+        <img class="_shot-feedback" src="./assets/shot.png" />
       </div>
       <img class="gameplay-bg" src="./assets/bg.jpg" />
 
@@ -97,8 +99,14 @@
               This game is just for fun. Please don't use it as an excuse to bonk a fumo in real life. I'm not responsible for that qmq
             </p>
 
-            <h2 class="fs-5 mb-3">Things you need to know</h2>
-            <ul>
+            <h2 class="fs-5">Weapon</h2>
+            <select id="weapon-select" class="form-select mt-2 mb-3">
+              <option value="stick" selected>Stick</option>
+              <option value="gun">Gun</option>
+            </select>
+
+            <h2 class="fs-5">Things you need to know</h2>
+            <ul class="mt-2 mb-3" style="max-height: 150px; overflow-y: scroll">
               <li>
                 To play, wait until a fumo shows up, then bonk it by moving your pointer over it and pressing
                 <span class="badge text-bg-dark">Z</span>. If you're using a phone, just tap on the fumo.

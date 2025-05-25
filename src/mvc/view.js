@@ -6,9 +6,12 @@ export default class View {
     this.fumoWrapperElement = document.getElementById("fumo-wrapper");
     this.startGameButton = document.getElementById("main-menu-start-game-btn");
     this.dogePointer = document.getElementById("doge-pointer");
+    this.weaponSelectElement = document.getElementById("weapon-select");
 
     // Load audio
     this.bonkAudio = new Audio("./assets/bonk.mp3");
+    this.shotAudio = new Audio("./assets/shot.mp3");
+    this.shotAudio.volume = 0.5;
     this.bonkAudio.currentTime = 0.5;
 
     // Game stat elements
@@ -72,22 +75,32 @@ export default class View {
   }
 
   // Play bonk sound if enabled
-  playBonkSoundEffect(bool) {
-    this.bonkAudio.pause();
-    this.bonkAudio.currentTime = 0.5;
-    if (bool) this.bonkAudio.play();
+  playBonkSoundEffect(bool, weapon) {
+    const audio = weapon === "stick" ? this.bonkAudio : this.shotAudio;
+    const time = weapon === "stick" ? 0.5 : 0;
+
+    audio.pause();
+    audio.currentTime = time;
+    if (bool) audio.play();
   }
 
   // Toggle bonk animation on doge pointer
-  bonkDogePointer(bool) {
-    if (bool) this.playBonkSoundEffect(true);
+  bonkDogePointer(bool, weapon) {
+    if (bool) this.playBonkSoundEffect(true, weapon);
     this.dogePointer.classList.toggle("bonked", bool);
   }
 
   // Update doge pointer position
-  updateDogePointerCordinates(x, y) {
-    this.dogePointer.style.top = `${y - this.dogePointer.clientHeight + 30}px`;
-    this.dogePointer.style.left = `${x - this.dogePointer.clientWidth - 200}px`;
+  updateDogePointerCordinates(x, y, weapon) {
+    if (weapon === "stick") {
+      this.dogePointer.style.top = `${y - this.dogePointer.clientHeight + 30}px`;
+      this.dogePointer.style.left = `${x - this.dogePointer.clientWidth - 200}px`;
+    }
+
+    if (weapon === "gun") {
+      this.dogePointer.style.top = `${y - this.dogePointer.clientHeight + 90}px`;
+      this.dogePointer.style.left = `${x - this.dogePointer.clientWidth - 120}px`;
+    }
   }
 
   // Move background based on pointer

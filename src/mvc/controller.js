@@ -39,14 +39,17 @@ export default class Controller {
         this.model.mouseY = e.clientY;
         const bgX = (e.clientX / window.innerWidth - 0.5) * 20;
         const bgY = (e.clientY / window.innerHeight - 0.5) * 20;
+
         this.view.updateGameplayBackgroundPosition(bgX, bgY);
-        this.view.updateDogePointerCordinates(e.clientX, e.clientY);
+        this.view.updateDogePointerCordinates(e.clientX, e.clientY, this.model.pointerWeapon);
       }
     });
 
     // Start or stop game
     this.view.startGameButton.addEventListener("click", () => {
       if (!this.model.isGameStarted) {
+        this.initialClick = true;
+
         this.view.mainMenuModal.hide();
         this.start();
       } else {
@@ -80,6 +83,11 @@ export default class Controller {
         this.model.isGamePaused = false;
       }
     });
+
+    this.view.weaponSelectElement.addEventListener("change", (e) => {
+      this.model.pointerWeapon = e.target.value;
+      this.view.dogePointer.dataset.weapon = e.target.value;
+    });
   }
 
   // Start game loop
@@ -99,6 +107,11 @@ export default class Controller {
 
   // Handle bonk logic
   bonk() {
+    if (this.initialClick) {
+      this.initialClick = false;
+      return;
+    }
+
     this.playBonkAnimation();
 
     this.view.getFumos().forEach((fumo) => {
@@ -143,13 +156,13 @@ export default class Controller {
   playBonkAnimation() {
     clearTimeout(this.model.bonkResetTimeout);
     clearTimeout(this.model.bonkRestartTimeout);
-    this.view.bonkDogePointer(false);
+    this.view.bonkDogePointer(false, this.model.pointerWeapon);
 
     this.model.bonkRestartTimeout = setTimeout(() => {
-      this.view.bonkDogePointer(true);
+      this.view.bonkDogePointer(true, this.model.pointerWeapon);
 
       this.model.bonkResetTimeout = setTimeout(() => {
-        this.view.bonkDogePointer(false);
+        this.view.bonkDogePointer(false, this.model.pointerWeapon);
       }, 150);
     }, 50);
   }

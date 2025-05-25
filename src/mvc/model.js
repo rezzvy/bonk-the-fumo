@@ -14,6 +14,8 @@ export default class Modal {
     this.isBonkPressed = false;
     this.isMaxSpeed = false;
 
+    this.pointerWeapon = "stick";
+
     // Mouse position tracking
     this.mouseX = 0;
     this.mouseY = 0;
@@ -44,7 +46,6 @@ export default class Modal {
     this.gameIntervalSpeed = 1000;
     this.isGameStarted = false;
     this.isGamePaused = false;
-    this.isGameOver = false;
     this.isBonkPressed = false;
     this.isMaxSpeed = false;
     this.mouseX = 0;

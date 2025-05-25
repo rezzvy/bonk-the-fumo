@@ -105,13 +105,39 @@ img,
   transition: opacity 50ms linear 50ms;
 }
 
-#doge-pointer.bonked ._bonk-feedback {
+#doge-pointer[data-weapon="stick"].bonked ._bonk-feedback {
   opacity: 1;
 }
 
-#doge-pointer.bonked ._stick {
+#doge-pointer[data-weapon="stick"].bonked ._stick {
   transform: rotate(45deg);
   bottom: 15%;
+}
+
+#doge-pointer[data-weapon="gun"].bonked ._shot-feedback {
+  opacity: 1;
+}
+
+#doge-pointer[data-weapon="stick"] ._gun,
+#doge-pointer[data-weapon="stick"] ._shot-feedback,
+#doge-pointer[data-weapon="gun"] ._stick,
+#doge-pointer[data-weapon="gun"] ._bonk-feedback {
+  display: none;
+}
+
+#doge-pointer ._gun {
+  width: 100px;
+  top: 23%;
+  left: 75%;
+  transform: rotate(354deg);
+}
+
+#doge-pointer ._shot-feedback {
+  opacity: 0;
+  width: 100px;
+  left: 118%;
+  top: 7%;
+  z-index: -1;
 }
 
 @keyframes intro-zoom {
@@ -165,6 +191,13 @@ img,
 
 body.game-starting .btn-close {
   display: block !important;
+}
+
+body.game-starting #weapon-select {
+  pointer-events: none;
+  opacity: 0.75;
+  background-color: rgb(231, 231, 231);
+  user-select: none;
 }
 
 body:not(.game-starting) #doge-pointer {
